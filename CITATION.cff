@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the associated paper."
+type: software
+title: "FDT Violations in Simulated Brain States"
+authors:
+  - family-names: Monti
+    given-names: Juan Manuel
+  - family-names: Perl
+    given-names: Yonatan Sanz
+  - family-names: Tagliazucchi
+    given-names: Enzo
+  - family-names: Kringelbach
+    given-names: Morten L.
+  - family-names: Deco
+    given-names: Gustavo
+license: MIT
+repository-code: "https://github.com/jmmonti/FDT-brain-states"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Monti
+      given-names: Juan Manuel
+    - family-names: Perl
+      given-names: Yonatan Sanz
+    - family-names: Tagliazucchi
+      given-names: Enzo
+    - family-names: Kringelbach
+      given-names: Morten L.
+    - family-names: Deco
+      given-names: Gustavo
+  title: "Fluctuation-dissipation theorem and the discovery of distinctive off-equilibrium signatures of brain states"
+  journal: "Physical Review Research"
+  volume: 7
+  issue: 1
+  year: 2025
+  doi: 10.1103/PhysRevResearch.7.013301
