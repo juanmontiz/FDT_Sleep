@@ -202,6 +202,8 @@ dtCsub = zeros(NSUB,NPARCELS,Tup,Tup);
 dsCsub = zeros(NSUB,NPARCELS,Tup,Tup);
 iVFDTsub = zeros(NSUB,NPARCELS,Tup,Tup);
 xiVFDTsub = zeros(NSUB,NPARCELS,Tup,Tup);
+iVFDTsub_var = zeros(NSUB,NPARCELS,Tup,Tup);
+xiVFDTsub_var = zeros(NSUB,NPARCELS,Tup,Tup);
 
 %%% Check for previous partial calculation
 substart = 1;
@@ -377,6 +379,19 @@ for sub = substart:NSUB
     end
     clear tintaux intRaux
 
+    %%% Variance-normalised (z-scored) IV-FDT
+    %%% as in z_Equations/Analytical_FDT_eqs_and_metrics_v1.tex eq. (Iinf_var_def)
+    %   For the self (single-parcel) case, i=j, so the normalisation
+    %   sqrt(V_ii*V_jj) reduces to V_np, the stationary variance of parcel np.
+    %   Stationary variance V_np = C(t,t) (equal-time correlation);
+    %   estimated as the mean of the equal-time diagonal over t.
+    for np = 1:NPARCELS
+        Vnp = mean(diag(squeeze(Csub(sub,np,:,:))));
+        iVFDTsub_var(sub,np,:,:)  = iVFDTsub(sub,np,:,:)  / Vnp;
+        xiVFDTsub_var(sub,np,:,:) = xiVFDTsub(sub,np,:,:) / Vnp;
+    end
+    clear Vnp
+
     %%% HERE I SAVE THE PARTIAL PROGRESS UP TO THIS SUBJECT TO CONTINUE AFTER
     sublast = sub;
     saveOK = 0;
@@ -385,7 +400,8 @@ for sub = substart:NSUB
     save(file_partial,'saveOK','FCsim_sub','FCsim_sub_filt',...
                       'Csub','Asub','Rsub','xRsub','dtCsub','dsCsub',...
                       'XFDRsub','xXFDRsub','dVFDTsub','xdVFDTsub','iVFDTsub','xiVFDTsub',...
-                      'Temp','sublast') 
+                      'iVFDTsub_var','xiVFDTsub_var',...
+                      'Temp','sublast')
     saveOK = 1;
     save(file_partial,'saveOK','-append')
 end %sub

@@ -37,6 +37,10 @@ The model uses a network of Stuart-Landau (Hopf) oscillators coupled via structu
 | **dVFDT** | Differential FDT violation | eq. 1, Cugliandolo 1997 |
 | **iVFDT** | Integral FDT violation | eq. 2, Cugliandolo 1997 |
 | **XFDR** | Fluctuation-dissipation ratio | eq. 43, Lippiello 1999 |
+| **iVFDT<sup>(var)</sup>** | Variance-normalised (z-scored) integral FDT violation | `z_Equations/Analytical_FDT_eqs_and_metrics_v1.tex` |
+
+> [!NOTE]
+> The variance-normalised versions `iVFDTsub_var`, `xiVFDTsub_var` divide the self (single-parcel) integral violation by the parcel stationary variance `V = C(t,t)`, yielding a dimensionless quantity invariant under parcel-wise rescaling. See `z_Equations/Analytical_FDT_eqs_and_metrics_v1.tex`.
 
 ## Dataset
 
@@ -120,7 +124,7 @@ Plots D(σ) curves and identifies optimal σ per condition.
 
 **Step 4 — Compute FDT observables**  
 `a3_FDT_script.m`  
-Main simulation script. Runs nonlinear Hopf simulations (NSUBSIM up to 10000), computes C(t,s), A(t,s), R(t,s), and derives dVFDT, iVFDT, XFDR for each subject and parcel.  
+Main simulation script. Runs nonlinear Hopf simulations (NSUBSIM up to 10000), computes C(t,s), A(t,s), R(t,s), and derives dVFDT, iVFDT, XFDR — plus the variance-normalised iVFDT<sup>(var)</sup> (`iVFDTsub_var`, `xiVFDTsub_var`) — for each subject and parcel.  
 *Saves:* `partial_Sleep_COND_*.mat` *(large files, excluded from repo)*
 
 ---
