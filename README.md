@@ -13,7 +13,7 @@
 
 ---
 
-Code for computing Fluctuation-Dissipation Theorem (FDT) violations in whole-brain Hopf bifurcation model simulations, comparing **Wakefulness** and **Deep Sleep (N3)** using resting-state fMRI data.
+Code for computing Fluctuation-Dissipation Theorem (FDT) violations in whole-brain Hopf bifurcation model simulations, comparing **Wakefulness** and **Deep Sleep 	(N3)** using resting-state fMRI data.
 
 ## Citation
 
@@ -37,10 +37,10 @@ The model uses a network of Stuart-Landau (Hopf) oscillators coupled via structu
 | **dVFDT** | Differential FDT violation | eq. 1, Cugliandolo 1997 |
 | **iVFDT** | Integral FDT violation | eq. 2, Cugliandolo 1997 |
 | **XFDR** | Fluctuation-dissipation ratio | eq. 43, Lippiello 1999 |
-| **iVFDT<sup>(var)</sup>** | Variance-normalised (z-scored) integral FDT violation | `z_Equations/Analytical_FDT_eqs_and_metrics_v1.tex` |
+| **iVFDT<sup>(var)</sup>** | Variance-normalised (z-scored) integral FDT violation |  |
 
 > [!NOTE]
-> The variance-normalised versions `iVFDTsub_var`, `xiVFDTsub_var` divide the self (single-parcel) integral violation by the parcel stationary variance `V = C(t,t)`, yielding a dimensionless quantity invariant under parcel-wise rescaling. See `z_Equations/Analytical_FDT_eqs_and_metrics_v1.tex`.
+> The variance-normalised versions `iVFDTsub_var`, `xiVFDTsub_var` divide the self (single-parcel) integral violation by the parcel stationary variance `V = C(t,t)`, yielding a dimensionless quantity invariant under parcel-wise rescaling. 
 
 ## Dataset
 
